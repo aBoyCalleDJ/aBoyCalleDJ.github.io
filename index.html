@@ -154,7 +154,7 @@ header {
 }
 
 .about-box p {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.6;
   color: var(--text-secondary);
 }
@@ -2414,9 +2414,10 @@ if (aboutOpen && aboutOverlay && aboutClose) {
   aboutOpen.addEventListener("click", (e) => {
     e.preventDefault();
     aboutOverlay.style.display = "flex";
+    aboutOverlay.querySelector(".about-box").scrollTop = 0;
     aboutClose.focus(); // Fokus in den Dialog
   });
-
+  
   aboutClose.addEventListener("click", () => {
     aboutOverlay.style.display = "none";
   });
