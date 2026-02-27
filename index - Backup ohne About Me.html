@@ -1,0 +1,2316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Favicon: moderne Browser -->
+<link rel="icon" type="image/jpeg" href="profil.jpg" sizes="16x16">
+<link rel="icon" type="image/jpeg" href="profil.jpg" sizes="32x32">
+<link rel="icon" type="image/jpeg" href="profil.jpg" sizes="48x48">
+<link rel="icon" type="image/jpeg" href="profil.jpg" sizes="96x96">
+<link rel="icon" type="image/jpeg" href="profil.jpg" sizes="192x192">   <!-- Android/Chrome -->
+
+<!-- Apple Touch Icon (Retina) -->
+<link rel="apple-touch-icon" href="profil.jpg">              <!-- Fallback -->
+<link rel="apple-touch-icon" sizes="120x120" href="profil.jpg">
+<link rel="apple-touch-icon" sizes="152x152" href="profil.jpg">
+<link rel="apple-touch-icon" sizes="167x167" href="profil.jpg">
+<link rel="apple-touch-icon" sizes="180x180" href="profil.jpg">  <!-- iPhone Retina -->
+
+<!-- Classic fallback für ältere Browser/Windows -->
+<link rel="shortcut icon" href="profil.jpg">
+<meta name="msapplication-TileImage" content="profil.jpg">
+<meta name="msapplication-TileColor" content="#171a21">
+
+<title>aBoyCalleDJ - Fancy Finished Games Repository</title>
+
+<style>
+:root {
+    --bg-dark: #1b2838;
+    --bg-secondary: #2a475e;
+    --bg-hover: #2f4358;
+    --bg-content: #203647;
+    --text-primary: #c7d5e0;
+    --text-secondary: #8f98a0;
+    --accent: #66c0f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+/* HEADER */
+header {
+    background-color: #171a21;
+    padding: 35px 20px;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: center;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 20px rgba(102,192,244,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(102,192,244,0.45);
+}
+
+.header-text h1 {
+    font-size: 30px;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+.header-text p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.steam-link a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.15s ease;
+}
+
+.steam-link a:hover {
+    opacity: 0.85;
+}
+
+/* Container */
+.container {
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* INFO BOX */
+.info-box {
+    background-color: var(--bg-secondary);
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--accent);
+    text-align: center;
+}
+
+/* YEAR */
+.year {
+    margin-bottom: 15px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+    transition: box-shadow 0.15s ease;
+}
+
+.year:hover {
+    box-shadow: 0 0 12px rgba(102,192,244,0.18);
+}
+
+.year-header {
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s ease;
+}
+
+.year-header:hover {
+    background-color: var(--bg-hover);
+}
+
+.year-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.year-title {
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.arrow {
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+.year.open .arrow {
+    transform: rotate(180deg);
+}
+
+.year-meta {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* ACCORDION */
+.year-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    background-color: var(--bg-content);
+}
+
+.year-content-inner {
+    padding: 12px 20px;
+}
+
+/* GAME LIST */
+.game-list {
+    list-style: none;
+}
+
+.game-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s ease;
+}
+
+.game-list li:hover {
+    background: rgba(102,192,244,0.04);
+}
+
+.game-title {
+    font-size: 13px;
+}
+
+.game-extra {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+}
+
+.game-extra:empty {
+    display: none;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #171a21;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-top: 1px solid #000;
+}
+
+/* SEARCH */
+.search-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 25px 0;
+}
+
+.search-box {
+    width: 420px;
+    max-width: 90%;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 14px;
+
+    border-radius: 6px;
+    border: 1px solid #16202d;
+
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+
+    font-size: 16px;
+    text-align: center;
+
+    outline: none;
+    transition: border 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-box input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-box input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 6px rgba(102,192,244,0.25);
+}
+
+.impressum-img {
+  width: 60%;
+  max-width: 260px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .header-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-image img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .year-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .game-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+}
+
+/* Small devices */
+@media (max-width: 600px) {
+
+    .year-header {
+        padding: 16px 18px;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 480px) {
+
+    .game-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .game-extra {
+        margin-top: 4px;
+    }
+
+}  /* ← hier schließen wir den Media-Query korrekt */
+
+/* IMPRESSUM POPUP */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.impressum-box {
+    background: var(--bg-secondary);
+    padding: 20px 28px;
+    border-radius: 8px;
+    max-width: 420px;
+    color: var(--text-primary);
+    box-shadow: 0 0 15px rgba(102,192,244,0.25);
+    border-left: 3px solid var(--accent);
+    animation: fadeIn 0.25s ease;
+}
+
+.impressum-box h2 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    margin-top: 15px;
+    padding: 8px 14px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: opacity 0.15s ease;
+}
+
+.close-btn:hover {
+    opacity: 0.85;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="header-image">
+            <img src="profil.jpg" alt="Profilbild">
+        </div>
+        <div class="header-text">
+            <h1>aBoyCalleDJ</h1>
+            <p>FANCY FINISHED GAMES REPOSITORY</p>
+
+            <div class="steam-link">
+                <a href="https://steamcommunity.com/id/aBoyCalleDJ" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385l.6-.99a4.2 4.2 0 0 1-2.3-3.6c0-.2.02-.4.06-.6l-3.1-1.3A2.5 2.5 0 0 1 4 13c.4-.9 1.3-1.4 2.2-1.4.3 0 .6.1.9.2l3.1 1.3a4.2 4.2 0 0 1 5.7-2.3l3.7-3.7V7a3 3 0 1 1 2 2.8l-3.7 3.7A4.2 4.2 0 0 1 13 18.2c-1.6 0-3-1-3.7-2.4l-3.1-1.3c-.4-.2-.8-.3-1.2-.3a3.5 3.5 0 0 0-3.3 2.4l3.4 1.4A4.2 4.2 0 0 1 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/>
+                    </svg>
+                    Steam Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+	<div class="search-wrapper">
+    <div class="search-box">
+        <input type="text" id="gameSearch" placeholder="SEARCH GAMES...">
+    </div>
+	</div>
+
+    <div class="info-box">
+        <strong>Info:</strong> All games without additional platform information were played on Steam.<br>
+        <strong>*</strong> symbol = game already finished before (replay / multiple playthroughs)
+    </div>
+
+
+
+
+<!-- Vorlage: 202x-->
+<!--
+    <div class="year open">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2015</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">xx GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+                        <span class="game-title">Spielname 1</span>
+                        <span class="game-extra">Plattform, wenn nicht Steam</span>
+                    </li>
+                    <li>
+                        <span class="game-title">Spielname 2</span>
+                        <span class="game-extra">Plattform, wenn nicht Steam</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+-->
+
+
+<!-- 2026-->
+    <div class="year open">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2026</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta"></span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+					<li>
+                        <span class="game-title">01 | Final Fantasy Rebirth</span>
+                        <span class="game-extra"></span>
+                    </li>
+                    <li>
+                        <span class="game-title">02 | Max Payne 3</span>
+                        <span class="game-extra"></span>
+                    </li>
+                    <li>
+                        <span class="game-title">03 | Unravel Two</span>
+                        <span class="game-extra">PlayStation 5</span>
+                    </li>
+					<li>
+                        <span class="game-title">04 | Arctic Awakening</span>
+                        <span class="game-extra"></span>
+                    </li>
+                    <li>
+                        <span class="game-title">05 | Brothers: A Tale of Two Sons Remake *</span>
+                        <span class="game-extra">PlayStation 5</span>
+                    </li>
+                     <li>
+                        <span class="game-title">06 | A Way Out *</span>
+                        <span class="game-extra">PlayStation 5</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2025 -->	
+	<div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2025</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">39 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Final Fantasy 16: Echoes of the Fallen (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | Final Fantasy 16: The Rising Tide (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | Final Fantasy 16</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Flintlock: The Siege of Dawn</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">05 | Drova: Forsaken Kin</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">06 | Star Wars Outlaws</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">07 | Tiny Tina's Wonderlands</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | Avowed</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">09 | It Takes Two *</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">10 | American Arcadia</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">11 | In Sound Mind</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | The Casting of Frank Stone</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | The Walking Dead: Season 1 *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | Final Fantasy 7 Remake</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">15 | Lost Records: Bloom & Rage</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">16 | Kingdom Come Deliverance 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Clair Obscur: Expedition 33</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Atomfall</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | Karma: The Dark World</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | The Outer Worlds *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | The Outer Worlds: Peril on Gorgon (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | The Outer Worlds: Murder on Eridanos (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">23 | South of Midnight</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">24 | Mafia: The Old Country</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">25 | Astro Bot</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">26 | Kingdom Come Deliverance 2: Brushes with Death (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">27 | Eriksholm: The Stolen Dream</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">28 | Hell is Us</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">29 | Tainted Grail: The Fall of Avalon</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">30 | Echoes of the End</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">31 | Cronos: The New Dawn</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">32 | Split Fiction</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">33 | Kingdom Come Deliverance 2: Legacy of the Forge (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">34 | The Outer Worlds 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">35 | Dispatch</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">36 | The Elder Scrolls 4: Oblivion Remastered</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">37 | Horses</span>
+						<span class="game-extra">Humble Store</span>
+					</li>
+					<li>
+						<span class="game-title">38 | Silent Hill f</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">39 | Kingdom Come Deliverance 2: Mysteria Ecclesiae (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2024-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2024</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">34 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Baldur's Gate 3</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | The Invincible</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | Ad Infinitum</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Under The Waves</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">05 | Banishers: Ghosts of New Eden</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">06 | Deliver Us Mars</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">07 | Reveil</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | Dragon's Dogma 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">09 | Outriders</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">10 | Sherlock Holmes: The Awakened (2023)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">11 | Through the Woods</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | Remnant 2: The Forgotten Kingdom (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | Crysis 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | Senua’s Saga: Hellblade 2</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">15 | Open Roads</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">16 | Still Wakes the Deep</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Mirror‘s Edge</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Indika</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | Fort Solis</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | Alone in the Dark (2024)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | Inside</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | Lies of P</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">23 | Dead Island 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">24 | Nobody Wants to Die</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">25 | Starfield: Shattered Space (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">26 | Dead Island 2: Haus (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">27 | Risen</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">28 | Silent Hill 2 (2024)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">29 | Life is Strange: Double Exposure</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">30 | Dead Island 2: SoLA (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">31 | Kentucky Route Zero</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">32 | Dragon Age: The Veilguard</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">33 | Remnant 2: The Dark Horizon (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">34 | Indiana Jones and the Great Circle</span>
+						<span class="game-extra"></span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2023-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2023</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">48 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Pentiment</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | Metro Exodus: Sam's Story (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | Aliens: Fireteam Elite</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Somerville</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">05 | Visage</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">06 | Moons of Madness</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">07 | To the Moon</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | Dead Space (2023)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">09 | A Bird Story</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">10 | Destiny 2: Shadowkeep (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">11 | The Signifier</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | The Chant</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | Hogwarts Legacy</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | Atomic Heart</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">15 | The Gunk</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">16 | Destiny 2: Beyond Light (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Resident Evil 4 (2023)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Finding Paradise</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | Wo Long: Fallen Dynasty</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | The Last of Us Part 1 *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | The Last of Us Part 1: Left Behind (DLC) *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | Horizon Forbidden West: Burning Shores (DLC)</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">23 | The Callisto Protocol</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">24 | The Legend of Zelda: Tears of the Kingdom</span>
+						<span class="game-extra">Switch</span>
+					</li>
+					<li>
+						<span class="game-title">25 | Planet of Lana</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">26 | Dordogne</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">27 | Fable Anniversary</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">28 | Amnesia: The Bunker</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">29 | Bramble: The Mountain King</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">30 | Alan Wake Remastered *</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">31 | The Dark Pictures: The Devil in Me</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">32 | Impostor Factory</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">33 | Remnant 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">34 | Starfield</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">35 | Star Wars Jedi: Survivor</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">36 | The Expanse: A Telltale Series</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">37 | Abzu</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">38 | The Stanley Parable</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">39 | Alan Wake 2</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">40 | Resident Evil Village: Shadows of Rose (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">41 | Resident Evil 4: Separate Ways (2023) (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">42 | Jusant</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">43 | Back to the Future: The Game</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">44 | Diablo 4</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">45 | Ghostwire: Tokyo</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">46 | Remnant 2: The Awakened King (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">47 | Cyberpunk 2077 *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">48 | Cyberpunk 2077: Phantom Liberty (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2022-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2022</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">44 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Divinity: Original Sin 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | Last Stop</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | The Dark Pictures: House of Ashes</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Kena: Bridge of Spirits</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">05 | Road 96</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">06 | Ratchet & Clank: Rift Apart</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">07 | Minute of Islands</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | A Juggler's Tale</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">09 | Industria</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">10 | Elden Ring</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">11 | Horizon Zero Dawn *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | Martha is Dead</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | Horizon Forbidden West</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">14 | Little Nightmares 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">15 | Omno</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">16 | Crysis</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Twelve Minutes</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">18 | A Memoir Blue</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">19 | Alfred Hitchcock Vertigo</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | Transference</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | Conway: Disappearance at Dahlia View</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | Sniper Elite 5</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">23 | Elex 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">24 | Mafia 3</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">25 | God of War (2018) *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">26 | Stray</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">27 | South of the Circle</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">28 | Dying Light 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">29 | Gerda: A Flame in Winter</span>
+						<span class="game-extra">Switch</span>
+					</li>
+					<li>
+						<span class="game-title">30 | Brothers: A Tale of Two Sons</span>
+						<span class="game-extra">Switch</span>
+					</li>
+					<li>
+						<span class="game-title">31 | As Dusk Falls</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">32 | Steelrising</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">33 | Death's Door</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">34 | Scorn</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">35 | Arise: A Simple Story</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">36 | A Plague Tale: Requiem</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">37 | The Quarry</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">38 | Yooka-Laylee</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">39 | New Tales from the Borderlands</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">40 | God of War Ragnarök</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">41 | High On Life</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">42 | My Friend Pedro</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">43 | Metro Exodus *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">44 | Metro Exodus: The Two Colonels (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2021-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2021</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">39 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+					<li>
+						<span class="game-title">01 | Fallout 76</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | Resident Evil 3 (2020)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | Mafia - Definitive Edition</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Mafia 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">05 | The Dark Pictures: Little Hope</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">06 | NieR: Automata</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">07 | Mass Effect Andromeda</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | It Takes Two</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">09 | Cyberpunk 2077</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">10 | Leisure Suit Larry: Wet Dreams Don't Dry</span>
+						<span class="game-extra">Switch</span>
+					</li>
+					<li>
+						<span class="game-title">11 | Monster Hunter World</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | Paradise Lost</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | Close To The Sun</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | Deliver Us The Moon</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">15 | The Elder Scrolls Online: Elsweyr (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">16 | Resident Evil Village</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Mass Effect</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Mass Effect 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | Trine</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | The Fabled Woods</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | Mass Effect 3</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | The Shore</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">23 | Mundaun</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">24 | Astro‘s Playroom</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">25 | Days Gone</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">26 | Demon‘s Souls (2020)</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">27 | Spider-Man Remastered</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">28 | The Last of Us Part 2</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">29 | Spider-Man: Miles Morales</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">30 | Life is Strange: True Colors</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">31 | Ghost of Tsushima</span>
+						<span class="game-extra">PlayStation 5</span>
+					</li>
+					<li>
+						<span class="game-title">32 | Deathloop</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">33 | The Last Campfire</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">34 | The Forgotten City</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">35 | BioShock Infinite</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">36 | Guardians of the Galaxy</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">37 | Rage 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">38 | Twin Mirror</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">39 | The Medium</span>
+						<span class="game-extra"></span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2020-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2020</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">31 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Remnant: From The Ashes</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | Red Dead Redemption 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | Blair Witch</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">04 | Dying Light *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">05 | The Outer Worlds</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">06 | The Walking Dead: The Final Season</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">07 | The Suicide of Rachel Foster</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | Gris</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">09 | The Surge 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">10 | Borderlands 3</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">11 | We Went Back</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | We Were Here</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | Kingdom Come Deliverance</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | Amnesia: The Dark Descent</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">15 | Ori and the Blind Forest</span>
+						<span class="game-extra">Switch</span>
+					</li>
+					<li>
+						<span class="game-title">16 | We Were Here Too</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Ken Follett’s Pillars of the Earth</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Sherlock Holmes: The Devil‘s Daughter</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | Death Stranding</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | Murdered: Soul Suspect</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | Star Wars Jedi: Fallen Order</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | Control</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">23 | Tell Me Why</span>
+						<span class="game-extra">PC Game Pass</span>
+					</li>
+					<li>
+						<span class="game-title">24 | The Witcher 3: Wild Hunt *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">25 | The Witcher 3: Hearts of Stone (DLC) *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">26 | The Witcher 3: Blood and Wine (DLC) *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">27 | Sea of Solitude</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">28 | Blacksad</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">29 | The Elder Scrolls Online: Summerset (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">30 | Call of the Sea</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">31 | We Were Here Together</span>
+						<span class="game-extra"></span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2019-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2019</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">19 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Assassin's Creed Odyssey</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | Sniper Elite 4</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | Resident Evil 2 (2019)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Uncharted: The Lost Legacy</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">05 | Oxenfree</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">06 | Trüberbrook</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">07 | Sekiro: Shadows Die Twice</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | A Plague Tale: Innocence</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">09 | Unforeseen Incidents</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">10 | Call of Cthulhu</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">11 | Californium</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | Dishonored: Death of the Outsider</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | Wolfenstein: Youngblood</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | The Dark Pictures: Man of Medan</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">15 | GreedFall</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">16 | Draugen</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Life is Strange 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Virginia</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | South Park: The Fractured But Whole</span>
+						<span class="game-extra">Switch</span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2018-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2018</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">23 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Dark Souls</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | Remothered: Tormented Fathers</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | Dark Souls 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Assassin's Creed Origins</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">05 | Batman: The Enemy Within: A Telltale Series</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">06 | The Raven</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">07 | Rage</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | Black Mirror (2017)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">09 | Vampyr</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">10 | God of War (2018)</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">11 | The Vanishing of Ethan Carter *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | Blackwood Crossing</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | Shadow of the Tomb Raider</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | Detroit: Become Human</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">15 | Dark Souls 3</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">16 | Tacoma</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Final Fantasy 15</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Sunset Overdrive</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | The Council</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | State of Mind</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | Gray Dawn</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | Night in the Woods</span>
+						<span class="game-extra">Switch</span>
+					</li>
+                    <li>
+						<span class="game-title">23 | A Way Out</span>
+						<span class="game-extra">EA App</span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2017-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2017</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">33 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+					<li>
+						<span class="game-title">01 | Game of Thrones: A Telltale Series</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">02 | The Walking Dead: Michonne</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">03 | Resident Evil 7</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Sherlock Holmes: Crimes and Punishments</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">05 | Homefront: The Revolution</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">06 | Batman: A Telltale Series</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">07 | Borderlands 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">08 | Horizon Zero Dawn</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">09 | The Legend of Zelda: Breath of the Wild</span>
+						<span class="game-extra">Switch</span>
+					</li>
+					<li>
+						<span class="game-title">10 | Middle-earth: Shadow of Mordor</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">11 | Dishonored 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">12 | Prey (2017)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">13 | Kona</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | What Remains of Edith Finch</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">15 | The Walking Dead: A New Frontier</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">16 | Get Even</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Rime</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Tales from the Borderlands</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | The Assembly</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | The Technomancer</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | Observer</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | Never Alone</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">23 | Thimbleweed Park</span>
+						<span class="game-extra">Switch</span>
+					</li>
+					<li>
+						<span class="game-title">24 | Little Nightmares</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">25 | Until Dawn</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">26 | The Evil Within 2</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">27 | Horizon Zero Dawn: The Frozen Wilds (DLC)</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">28 | Elex</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">29 | Guardians of the Galaxy: A Telltale Series</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">30 | Hellblade: Senua's Sacrifice</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">31 | Super Mario Odyssey</span>
+						<span class="game-extra">Switch</span>
+					</li>
+					<li>
+						<span class="game-title">32 | Wolfenstein 2: The New Colossus</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">33 | Life is Strange: Before the Storm</span>
+						<span class="game-extra"></span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2016-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2016</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">30 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Uncharted 2: Among Thieves</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">02 | Uncharted 3: Drake's Deception</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">03 | Rise of the Tomb Raider</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">04 | Dragon's Dogma: Dark Arisen</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">05 | Layers of Fear (2016)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">06 | Heavy Rain</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">07 | Beyond: Two Souls</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">08 | Batman: Arkham Asylum</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">09 | Batman: Arkham City</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">10 | Grim Dawn</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">11 | Batman: Arkham Knight</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">12 | Uncharted 4: A Thief's End</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">13 | Fallout 4: Far Harbor (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">14 | Firewatch</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">15 | The Witcher 3: Blood and Wine (DLC)</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">16 | The Park</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Wolfenstein: The Old Blood</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | The Town of Light</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | The Guest</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">20 | Doom (2016)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">21 | No Man's Sky</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">22 | Deus Ex: Mankind Divided</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">23 | Fallout 4: Nuka-World (DLC)</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">24 | Journey</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">25 | Risen 3: Titan Lords</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">26 | The Solus Project</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">27 | Quantum Break</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">28 | The Wolf Among Us</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">29 | Hitman: Season 1</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">30 | South Park: The Stick of Truth</span>
+						<span class="game-extra"></span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 2015-->
+    <div class="year">
+        <div class="year-header">
+            <div class="year-left">
+                <span class="year-title">2015</span>
+                <span class="arrow">▼</span>
+            </div>
+            <span class="year-meta">19 GAMES FINISHED</span>
+        </div>
+
+        <div class="year-content">
+            <div class="year-content-inner">
+                <ul class="game-list">
+                    <li>
+						<span class="game-title">01 | Far Cry 4</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">02 | Grand Theft Auto 5 *</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">03 | Grim Fandango Remastered</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">04 | Alien: Isolation</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">05 | Dying Light</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">06 | Metro 2033 Redux</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">07 | Metro Last Light Redux</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">08 | Wolfenstein: The New Order</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">09 | The Witcher 3: Wild Hunt</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">10 | The Witcher 3: Hearts of Stone (DLC)</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">11 | The Evil Within</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">12 | The Vanishing of Ethan Carter</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">13 | Everybody's Gone to the Rapture</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+					<li>
+						<span class="game-title">14 | Fallout: New Vegas *</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">15 | Fallout 4</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">16 | Life is Strange</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">17 | Mad Max</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">18 | Soma</span>
+						<span class="game-extra"></span>
+					</li>
+					<li>
+						<span class="game-title">19 | Uncharted: Drake's Fortune</span>
+						<span class="game-extra">PlayStation 4</span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<footer>
+  © 2026 aBoyCalleDJ – self-proclaimed frame rate whore · 
+  <a href="#" id="openImprint" style="color: var(--accent); text-decoration:none;">Impressum</a>
+</footer>
+
+<!-- IMPRESSUM POPUP -->
+<div id="impressumOverlay" class="overlay">
+  <div class="impressum-box">
+    <h2>Impressum</h2>
+
+    <p><strong>Legal Notice</strong><br>
+      <small style="color: var(--text-secondary); font-size: 11px;">
+        (because German law does not even allow a simple, non‑commercial hobby website to exist without an imprint, as long as it is publicly accessible and regularly maintained)
+      </small>
+    </p>
+	<br>
+    
+	<img src="i-m-g-01.png" alt="" class="impressum-img">
+
+    <button id="closeImprint" class="close-btn">Close</button>
+  </div>
+</div>
+
+
+<script>
+/* Elemente referenzieren */
+const years = document.querySelectorAll(".year");
+const searchInput = document.getElementById("gameSearch");
+
+/* Hilfsfunktionen */
+function openYear(year) {
+  const content = year.querySelector(".year-content");
+  const inner = year.querySelector(".year-content-inner");
+  year.classList.add("open");
+  // Höhe sauber animieren
+  requestAnimationFrame(() => {
+    content.style.height = inner.scrollHeight + "px";
+  });
+}
+
+function closeYear(year) {
+  const content = year.querySelector(".year-content");
+  year.classList.remove("open");
+  content.style.height = "0px";
+}
+
+/* INITIAL HEIGHT FIX (für bereits offene Jahre im HTML) */
+window.addEventListener("load", () => {
+  years.forEach(year => {
+    if (year.classList.contains("open")) {
+      const content = year.querySelector(".year-content");
+      const inner = year.querySelector(".year-content-inner");
+      content.style.height = inner.scrollHeight + "px";
+    }
+  });
+});
+
+/* Accordion-Klicks */
+years.forEach(year => {
+  const header = year.querySelector(".year-header");
+  const content = year.querySelector(".year-content");
+  const inner = year.querySelector(".year-content-inner");
+
+  header.addEventListener("click", () => {
+    const isOpen = year.classList.contains("open");
+    if (isOpen) {
+      closeYear(year);
+    } else {
+      openYear(year);
+    }
+  });
+});
+
+/* Ursprünglich offene Jahre merken (so, wie im HTML gesetzt) */
+const initiallyOpenYears = new Set(
+  [...years].filter(y => y.classList.contains("open"))
+);
+
+/* Reset-Funktion: alles in den Ursprungszustand */
+function restoreInitialState() {
+  years.forEach(year => {
+    // Jahr immer anzeigen
+    year.style.display = "block";
+
+    // Spiele-Einträge wieder anzeigen (falls Suche sie versteckt hatte)
+    year.querySelectorAll(".game-list li").forEach(li => {
+      li.style.display = "flex";
+    });
+
+    // Offene Jahre lt. Initialzustand
+    if (initiallyOpenYears.has(year)) {
+      openYear(year);
+    } else {
+      closeYear(year);
+    }
+  });
+}
+
+/* Suche */
+searchInput.addEventListener("input", function () {
+  const query = this.value.toLowerCase().trim();
+
+  // Wenn Suchfeld leer → Ursprungszustand wiederherstellen und raus
+  if (query === "") {
+    restoreInitialState();
+    return;
+  }
+
+  // Sonst: filtern
+  years.forEach(year => {
+    const content = year.querySelector(".year-content");
+    const inner = year.querySelector(".year-content-inner");
+    const games = year.querySelectorAll(".game-list li");
+
+    let matchCount = 0;
+
+    games.forEach(game => {
+      const text = game.innerText.toLowerCase();
+      if (text.includes(query)) {
+        game.style.display = "flex";
+        matchCount++;
+      } else {
+        game.style.display = "none";
+      }
+    });
+
+    if (matchCount > 0) {
+      // Jahr zeigen und öffnen
+      year.style.display = "block";
+      openYear(year);
+    } else {
+      // Jahr komplett ausblenden und geschlossen halten
+      year.style.display = "none";
+      closeYear(year);
+    }
+  });
+});
+
+// IMPRESSUM POPUP
+const btnOpen = document.getElementById("openImprint");
+const btnClose = document.getElementById("closeImprint");
+const overlay = document.getElementById("impressumOverlay");
+
+btnOpen.addEventListener("click", (e) => {
+    e.preventDefault();
+    overlay.style.display = "flex";
+});
+
+btnClose.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
+
+overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+        overlay.style.display = "none";
+    }
+});
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
