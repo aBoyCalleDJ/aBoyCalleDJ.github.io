@@ -105,6 +105,68 @@ header {
     opacity: 0.85;
 }
 
+/* Links im Header sauber auf einer Linie halten */
+.steam-link {
+  display: inline-flex;
+  align-items: center;     /* vertikal mittig */
+  gap: 6px;                /* minimaler Abstand */
+}
+
+.steam-link a,
+.steam-link .sep {
+  line-height: 1;          /* verhindert Baseline-Versatz */
+}
+
+.steam-link svg {
+  display: block;          /* verhindert, dass das SVG den Text nach unten schiebt */
+}
+
+/* Trennpunkt leicht abtönen */
+.steam-link .sep {
+  opacity: .7;
+}
+
+.steam-link .about-link {
+    font-size: 14px;   /* GLEICHE Größe wie Steam Profile */
+    font-weight: 400;  /* gleiche Stärke */
+    line-height: 1;    /* gleiche Höhe */
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ABOUT POPUP (größer als Impressum) */
+.about-box {
+  background: var(--bg-secondary);
+  padding: 26px 32px;
+  border-radius: 10px;
+  width: min(900px, 94vw);    /* breiter als Impressum */
+  max-height: 86vh;           /* höher, mit Scroll bei Bedarf */
+  overflow: auto;
+  color: var(--text-primary);
+  box-shadow: 0 0 18px rgba(102,192,244,0.28);
+  border-left: 3px solid var(--accent);
+  animation: fadeIn 0.25s ease;
+}
+
+.about-box h2 {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.about-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Smartphone */
+@media (max-width: 768px) {
+  .about-box {
+    width: 92vw;
+    padding: 22px 22px;
+  }
+}
+
 /* Container */
 .container {
     max-width: 720px;
@@ -392,9 +454,14 @@ footer {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385l.6-.99a4.2 4.2 0 0 1-2.3-3.6c0-.2.02-.4.06-.6l-3.1-1.3A2.5 2.5 0 0 1 4 13c.4-.9 1.3-1.4 2.2-1.4.3 0 .6.1.9.2l3.1 1.3a4.2 4.2 0 0 1 5.7-2.3l3.7-3.7V7a3 3 0 1 1 2 2.8l-3.7 3.7A4.2 4.2 0 0 1 13 18.2c-1.6 0-3-1-3.7-2.4l-3.1-1.3c-.4-.2-.8-.3-1.2-.3a3.5 3.5 0 0 0-3.3 2.4l3.4 1.4A4.2 4.2 0 0 1 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/>
                     </svg>
-                    Steam Profile
-                </a>
-            </div>
+					Steam Profile
+					</a>
+					 
+					<span class="sep">·</span>
+					<a href="#" id="openAbout" class="about-link">
+					<span>About Me</span>
+					</a>
+			</div>
         </div>
     </div>
 </header>
@@ -2168,6 +2235,41 @@ footer {
   </div>
 </div>
 
+<!-- ABOUT POPUP -->
+<div id="aboutOverlay" class="overlay" style="display: none;">
+  <div class="about-box" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+    <h2 id="aboutTitle">ABOUT ME</h2>
+    <p>
+      <strong>WHY THIS NONSENSE?</strong><br>
+      <br>
+		Hello… or as they say in Northern Germany: "Moin". Somehow you managed to stumble onto my weird website. And at this point I'd like to explain a little what it's all about.
+		Sorry, a small Tolkien novel follows.
+		<br><br>
+		First of all let me introduce myself: My name is <strong>aBoyCalleDJ</strong> (pronounced: ə bɔɪ kɔːld dʒeɪ) and I am – who would have guessed – a passionate gamer. 
+		For me video games are the best form of entertainment of all time and far more than just a simple hobby. It sounds dramatic, but I still have to write it: They are pure passion. 
+		With the exception of my amazing girlfriend, there is nothing in this world that helps me unwind more than immersive escapism through this medium. Many people go to yoga, fishing, 
+		or listen to Bob Ross on repeat to relax (okay, I might do that too)... but I play a video game.
+		<br><br>
+		Above all, I love narrative experiences. For me a game usually needs at least some kind of story. Roleplaying games (RPGs) will probably always remain my favorite genre but 
+		my range spans from (action)-adventures to survival horror and even simple walking simulators. And when I'm not playing solo (hard to believe, but I do have friends), 
+		I enjoy certain co-op experiences either with my girlfriend or my gaming buddies. But one thing usually remains consistent: the games are mostly story-driven. 
+		Wow, I'm starting to see a pattern myself.
+		<br><br>
+		<strong>But why does this website even need to exist?</strong> Honestly: it doesn't. In 2015 I started writing down which games I finished each year. At some point it turned into a kind of tradition, 
+		because every gamer has that one ultimate final boss: the Pile of Shame. Keeping this completion list motivated and pushed me to work through my Pile of Shame. With one quick glance, I could always 
+		see what I had achieved and accomplished so far. Sure, other people my age build houses and have children... but I'm still proud of finishing my "projects" and sticking with them. Especially 
+		nowadays when games are often only played halfway instead of being completed. So I continued adding newly finished games to this list. It has become a kind of weird motivational tool for me. 
+		Yeah, everyone has their own fetish. Reason number two: I also felt like finally getting back into HTML / CSS / JS coding (okay, admittedly, in the end an AI did about 75% of the work for me).
+		<br><br>
+		So I think that's enough about me and this website. In short, this website is mostly meant for myself. But it's nice that you somehow found your way here and even made the effort to read this far. 
+		"Achievement unlocked: wasted lifetime confirmed," I'd say. But who knows, maybe this site will eventually be expanded a bit: reviews, podcasts (I have a very erotic voice, I promise) or 
+		something else. Honestly, I don't know yet. And there's probably no one who's interested in my opinion anyway (Yes, I'm that self-critical). I hope I was able to explain a little why this  website 
+		exists. Thanks for reading and Praise the Sun.
+    </p>
+    <button id="closeAbout" class="close-btn">Close</button>
+  </div>
+</div>
+
 
 <script>
 /* Elemente referenzieren */
@@ -2302,6 +2404,35 @@ overlay.addEventListener("click", (e) => {
         overlay.style.display = "none";
     }
 });
+
+// ABOUT ME POPUP
+const aboutOpen = document.getElementById("openAbout");
+const aboutOverlay = document.getElementById("aboutOverlay");
+const aboutClose = document.getElementById("closeAbout");
+
+if (aboutOpen && aboutOverlay && aboutClose) {
+  aboutOpen.addEventListener("click", (e) => {
+    e.preventDefault();
+    aboutOverlay.style.display = "flex";
+    aboutClose.focus(); // Fokus in den Dialog
+  });
+
+  aboutClose.addEventListener("click", () => {
+    aboutOverlay.style.display = "none";
+  });
+
+  aboutOverlay.addEventListener("click", (e) => {
+    if (e.target === aboutOverlay) {
+      aboutOverlay.style.display = "none";
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && aboutOverlay.style.display === "flex") {
+      aboutOverlay.style.display = "none";
+    }
+  });
+}
 </script>
 
 
