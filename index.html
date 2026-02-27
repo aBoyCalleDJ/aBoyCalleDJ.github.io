@@ -2411,12 +2411,28 @@ const aboutOverlay = document.getElementById("aboutOverlay");
 const aboutClose = document.getElementById("closeAbout");
 
 if (aboutOpen && aboutOverlay && aboutClose) {
-  aboutOpen.addEventListener("click", (e) => {
-    e.preventDefault();
-    aboutOverlay.style.display = "flex";
-    aboutOverlay.querySelector(".about-box").scrollTop = 0;
-    aboutClose.focus(); // Fokus in den Dialog
+aboutOpen.addEventListener("click", (e) => {
+  e.preventDefault();
+  aboutOverlay.style.display = "flex";
+
+  const box = aboutOverlay.querySelector(".about-box");
+
+  // 1) Sofort nach oben scrollen
+  box.scrollTop = 0;
+
+  // 2) Nach dem Rendern noch einmal (iOS/Android Workaround)
+  requestAnimationFrame(() => {
+    box.scrollTop = 0;
+
+    // 3) Kleiner Timeout für Safari-Reflow
+    setTimeout(() => {
+      box.scrollTop = 0;
+    }, 50);
   });
+
+  aboutClose.focus(); // Fokus setzen
+});
+
   
   aboutClose.addEventListener("click", () => {
     aboutOverlay.style.display = "none";
