@@ -485,11 +485,11 @@ footer {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 9999;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
+  z-index: 9999;
+  padding-top: 10px;  
 }
 
 /* Einzelne Box AUSBLENDEN */
@@ -497,6 +497,40 @@ footer {
   display: none;
 }
 
+/* Close Button */
+.close-status-btn {
+  position: absolute;
+  top: 0;       
+  right: 0;
+
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  
+  
+  background-color: var(--bg-secondary); 
+  padding: 3px 7px;                      
+  border-radius: 15px;                    
+
+  border: 1px solid rgba(255,255,255,0.08);  
+}
+
+
+.close-status-btn:hover {
+  box-shadow: 0 0 6px rgba(102,192,244,0.5);
+}
+
+
+@media (hover: none) {
+  .close-status-btn {
+    padding: 6px 10px;   
+    font-size: 13px;     
+  }
+}
+
+.close-status-btn {
+  display: inline-block;
+}
 
 </style>
 </head>
@@ -507,6 +541,7 @@ footer {
 <!-- AN = class="game-status" -->
 <!-- AUS = class="game-status disabled" -->
 	<div class="game-status-container">
+	<button class="close-status-btn" aria-label="Close">X</button>
 	  
 	  <div class="game-status">
 		<div class="title">Currently Playing</div>
@@ -514,7 +549,7 @@ footer {
 		<span>PC (Steam)</span>
 	  </div>
 	  
-	  <div class="game-status disabled">
+	  <div class="game-status">
 		<div class="title">Currently Playing</div>
 		<strong>Spiel einfügen</strong><br>
 		<span>PC (Steam)</span>
@@ -656,7 +691,6 @@ footer {
                         <span class="game-title">11 | Starfield: Terran Armada (DLC)</span>
                         <span class="game-extra"></span>
                     </li>
-                      </li>
 					 <li>
                         <span class="game-title">12 | Aphelion</span>
                         <span class="game-extra"></span>
@@ -2888,7 +2922,11 @@ aboutOpen.addEventListener("click", (e) => {
       aboutOverlay.style.display = "none";
     }
   });
+
 }
+document.querySelector('.game-status-container .close-status-btn').onclick = () => {
+  document.querySelector('.game-status-container').style.display = 'none';  
+};
 </script>
 
 
