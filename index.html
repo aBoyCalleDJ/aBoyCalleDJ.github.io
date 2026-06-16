@@ -437,10 +437,96 @@ footer {
     from { opacity: 0; transform: scale(0.94); }
     to { opacity: 1; transform: scale(1); }
 }
+
+/* --- GAME STATUS BOX --- */
+.game-status {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+
+  padding: 10px 14px;
+  width: 190px;
+
+  font-size: 0.8rem;
+  color: var(--text-primary);
+
+  /* Grundtiefe */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+  transition: box-shadow 0.2s ease;
+  overflow: hidden;
+  max-width: 90vw;
+}
+
+.game-status:hover {
+  box-shadow:
+    0 0 0 1px rgba(102,192,244,0.3),   /* klarer Rand */
+    0 0 16px rgba(102,192,244,0.25),     /* weicher Glow */
+    0 6px 18px rgba(0,0,0,0.35);        /* Tiefe */
+}
+
+.game-status .title {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.game-status strong {
+  color: var(--text-primary);
+}
+
+
+.game-status span {
+  color: rgba(199,213,224,0.8);
+}
+
+/* Container für Stapelung */
+.game-status-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Einzelne Box AUSBLENDEN */
+.game-status.disabled {
+  display: none;
+}
+
+
 </style>
 </head>
 
 <body>
+
+<!-- CURRENTLY PLAYED SECTION -->
+<!-- AN = class="game-status" -->
+<!-- AUS = class="game-status disabled" -->
+	<div class="game-status-container">
+	  
+	  <div class="game-status">
+		<div class="title">Currently Playing</div>
+		<strong>Vampire The Masquerade: Swansong</strong><br>
+		<span>PC (Steam)</span>
+	  </div>
+	  
+	  <div class="game-status disabled">
+		<div class="title">Currently Playing</div>
+		<strong>Spiel einfügen</strong><br>
+		<span>PC (Steam)</span>
+	  </div>
+
+	  <div class="game-status disabled">
+		<div class="title">Currently Playing</div>
+		<strong>Spiel einfügen</strong><br>
+		<span>PC (Steam)</span>
+	  </div>
+
+	</div>
 
 <header>
     <div class="header-inner">
