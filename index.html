@@ -2872,7 +2872,7 @@ searchInput.addEventListener("input", function () {
     let matchCount = 0;
 
     games.forEach(game => {
-		let text = game.innerText.toLowerCase();
+		let text = game.textContent.toLowerCase();
 		// auch Sternchen im Text angleichen
 		text = text.replace(/\*/g, "✱");
 
