@@ -2855,12 +2855,7 @@ function restoreInitialState() {
 /* Suche */
 searchInput.addEventListener("input", function () {
 	let query = this.value.toLowerCase().trim();
-
-	// * in ✱ umwandeln
-	if (query === "*") {
-	  query = "✱";
-	}
-
+	query = query.replace(/\*/g, "✱");
 
   // Wenn Suchfeld leer → Ursprungszustand wiederherstellen und raus
   if (query === "") {
