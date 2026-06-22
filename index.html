@@ -54,7 +54,7 @@ body {
 /* HEADER */
 header {
     background-color: #171a21;
-    padding: 35px 20px;
+    padding: 22px 22px;
     border-bottom: 1px solid #000;
     display: flex;
     justify-content: center;
@@ -185,8 +185,21 @@ header {
     font-size: 13px;
     line-height: 1.5;
     color: var(--text-secondary);
-    border-left: 3px solid var(--accent);
+    border-left: 2px solid var(--accent);
+	border-right: 2px solid var(--accent);
     text-align: center;
+}
+
+@media (max-width: 768px) {
+  .info-box {
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;          /* Firefox */
+  }
+
+  .info-box::-webkit-scrollbar {
+    display: none;                  /* Chrome/Safari */
+  }
 }
 
 /* YEAR */
@@ -286,8 +299,8 @@ header {
 
 /* FOOTER */
 footer {
-    margin-top: 45px;
-    padding: 20px;
+    margin-top: 35px;
+    padding: 12px;
     background-color: #171a21;
     text-align: center;
     font-size: 13px;
@@ -311,14 +324,13 @@ footer {
 .search-box input {
     width: 100%;
     padding: 10px 14px;
-
     border-radius: 6px;
-    border: 1px solid #16202d;
 
+    border: 1px solid rgba(102,192,244,0.25); 
     background-color: var(--bg-secondary);
-    color: var(--text-primary);
 
-    font-size: 16px;
+    color: var(--text-primary);
+    font-size: 14.5px;
     text-align: center;
 
     outline: none;
