@@ -147,6 +147,7 @@ header {
   color: var(--text-primary);
   box-shadow: 0 0 18px rgba(102,192,244,0.28);
   border-left: 3px solid var(--accent);
+  border-right: 3px solid var(--accent);
   animation: fadeIn 0.25s ease;
 }
 
@@ -422,6 +423,7 @@ footer {
     color: var(--text-primary);
     box-shadow: 0 0 15px rgba(102,192,244,0.25);
     border-left: 3px solid var(--accent);
+	border-right: 3px solid var(--accent);
     animation: fadeIn 0.25s ease;
 }
 
@@ -562,6 +564,13 @@ footer {
 
   display: block;     
 }
+
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+
 </style>
 </head>
 
@@ -2908,15 +2917,18 @@ const overlay = document.getElementById("impressumOverlay");
 btnOpen.addEventListener("click", (e) => {
     e.preventDefault();
     overlay.style.display = "flex";
+	document.body.classList.add("no-scroll");
 });
 
 btnClose.addEventListener("click", () => {
     overlay.style.display = "none";
+	document.body.classList.remove("no-scroll");
 });
 
 overlay.addEventListener("click", (e) => {
     if (e.target === overlay) {
         overlay.style.display = "none";
+		document.body.classList.remove("no-scroll");
     }
 });
 
@@ -2929,6 +2941,7 @@ if (aboutOpen && aboutOverlay && aboutClose) {
 aboutOpen.addEventListener("click", (e) => {
   e.preventDefault();
   aboutOverlay.style.display = "flex";
+  document.body.classList.add("no-scroll");
 
   const box = aboutOverlay.querySelector(".about-box");
 
@@ -2951,17 +2964,20 @@ aboutOpen.addEventListener("click", (e) => {
   
   aboutClose.addEventListener("click", () => {
     aboutOverlay.style.display = "none";
+	document.body.classList.remove("no-scroll");
   });
 
   aboutOverlay.addEventListener("click", (e) => {
     if (e.target === aboutOverlay) {
       aboutOverlay.style.display = "none";
+	   document.body.classList.remove("no-scroll");
     }
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && aboutOverlay.style.display === "flex") {
       aboutOverlay.style.display = "none";
+	  document.body.classList.remove("no-scroll");
     }
   });
 
