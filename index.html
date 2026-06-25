@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+
+<!--
+✅ Achievement Unlocked: 
+Look all you want. Touch nothing.
+
+Ah, hello there.
+Welcome to my code.
+
+I mean… I get it.
+But please don’t steal copyrighted material.
+
+Now that I think about it,
+when is the next ‘Thief’ actually coming out?!
+
+Anyway, have fun exploring.
+-->
+
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -12,10 +29,10 @@
 <link rel="icon" type="image/jpeg" href="profil.jpg" sizes="32x32">
 <link rel="icon" type="image/jpeg" href="profil.jpg" sizes="48x48">
 <link rel="icon" type="image/jpeg" href="profil.jpg" sizes="96x96">
-<link rel="icon" type="image/jpeg" href="profil.jpg" sizes="192x192">   <!-- Android/Chrome -->
+<link rel="icon" type="image/jpeg" href="profil.jpg" sizes="192x192">  <!-- Android/Chrome -->
 
 <!-- Apple Touch Icon (Retina) -->
-<link rel="apple-touch-icon" href="profil.jpg">              <!-- Fallback -->
+<link rel="apple-touch-icon" href="profil.jpg"> <!-- Fallback -->
 <link rel="apple-touch-icon" sizes="120x120" href="profil.jpg">
 <link rel="apple-touch-icon" sizes="152x152" href="profil.jpg">
 <link rel="apple-touch-icon" sizes="167x167" href="profil.jpg">
@@ -43,6 +60,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+	caret-color: transparent;  /* Blinken des Cursors ausschließen */
 }
 
 body {
@@ -110,17 +128,17 @@ header {
 /* Links im Header sauber auf einer Linie halten */
 .steam-link {
   display: inline-flex;
-  align-items: center;     /* vertikal mittig */
-  gap: 6px;                /* minimaler Abstand */
+  align-items: center;     
+  gap: 6px;                
 }
 
 .steam-link a,
 .steam-link .sep {
-  line-height: 1;          /* verhindert Baseline-Versatz */
+  line-height: 1;         
 }
 
 .steam-link svg {
-  display: block;          /* verhindert, dass das SVG den Text nach unten schiebt */
+  display: block;          
 }
 
 /* Trennpunkt leicht abtönen */
@@ -129,20 +147,20 @@ header {
 }
 
 .steam-link .about-link {
-    font-size: 14px;   /* GLEICHE Größe wie Steam Profile */
-    font-weight: 400;  /* gleiche Stärke */
-    line-height: 1;    /* gleiche Höhe */
+    font-size: 14px;  
+    font-weight: 400;  
+    line-height: 1;   
     color: var(--accent);
     text-decoration: none;
 }
 
-/* ABOUT POPUP (größer als Impressum) */
+/* ABOUT POPUP */
 .about-box {
   background: var(--bg-secondary);
   padding: 26px 32px;
   border-radius: 10px;
-  width: min(900px, 94vw);    /* breiter als Impressum */
-  max-height: 86vh;           /* höher, mit Scroll bei Bedarf */
+  width: min(900px, 94vw);    
+  max-height: 86vh;           
   overflow: auto;
   color: var(--text-primary);
   box-shadow: 0 0 18px rgba(102,192,244,0.28);
@@ -402,7 +420,7 @@ footer {
         margin-top: 4px;
     }
 
-}  /* ← hier schließen wir den Media-Query korrekt */
+}  
 
 /* IMPRESSUM POPUP */
 .overlay {
@@ -557,7 +575,7 @@ footer {
   color: var(--accent);  
 }
 
-
+/* Formatierung Steam Logo */
 .steam-icon {
   width: 16px;   
   height: 16px;
@@ -565,10 +583,16 @@ footer {
   display: block;     
 }
 
-
+/* Kein Scrollen mehr im Hintergrund, wenn PopUp aktiv */
 body.no-scroll {
     overflow: hidden;
 }
+
+/* Verschieben des Bildschirmhintergrunds bei PopUp-Oeffnung fixen */
+html {
+    scrollbar-gutter: stable;
+}
+
 
 
 </style>
@@ -614,7 +638,7 @@ body.no-scroll {
             <p>FANCY FINISHED GAMES REPOSITORY</p>
 
             <div class="steam-link">
-                <a href="https://steamcommunity.com/id/aBoyCalleDJ" target="_blank">
+                <a href="https://steamcommunity.com/id/aBoyCalleDJ" target="_blank" rel="noopener noreferrer">
                    <img src="steam_logo.png" class="steam-icon" alt="Steam">
 					Steam Profile
 					</a>
@@ -2751,7 +2775,7 @@ body.no-scroll {
     </p>
 	<br>
     
-	<img src="i-m-g-01.png" alt="" class="impressum-img">
+	<img src="i-m-g-01.png" alt="Impressum image" class="impressum-img">
 
     <button id="closeImprint" class="close-btn">Close</button>
   </div>
