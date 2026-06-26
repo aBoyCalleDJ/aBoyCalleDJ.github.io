@@ -711,33 +711,30 @@ html {
 
 
 /* GOLD, SILVER, BRONZE - Ansicht auf Smartphones */
-media (hover: none) {
+@media (max-width: 768px) {
 
   .game-list li.game-gold .game-title::after {
-    content: " – This Year's Highlight" !important;
+    content: " – This Year's Highlight";
     margin-left: 6px;
     font-size: 10.5px;
     color: rgba(255, 215, 0, 0.75);
   }
 
   .game-list li.game-silver .game-title::after {
-    content: " – #2 This Year's Highlight" !important;
+    content: " – #2 This Year's Highlight";
     margin-left: 6px;
     font-size: 10.5px;
     color: rgba(200, 200, 200, 0.75);
   }
 
   .game-list li.game-bronze .game-title::after {
-    content: " – #3 This Year's Highlight" !important;
+    content: " – #3 This Year's Highlight";
     margin-left: 6px;
     font-size: 10.5px;
     color: rgba(210, 150, 100, 0.75);
   }
 
 }
-
-
-
 
 </style>
 </head>
