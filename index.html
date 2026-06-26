@@ -721,8 +721,6 @@ html {
   font-size: 10.5px;
   color: rgba(210, 150, 100, 0.75);
 }
-``
-
 
 
 /* GOLD, SILVER, BRONZE - Ansicht auf Smartphones */
@@ -747,6 +745,19 @@ html {
     margin-left: 6px;
     font-size: 10.5px;
     color: rgba(210, 150, 100, 0.75);
+  }
+
+  /* ✅ WICHTIG: Hover deaktivieren (überschreibt Desktop-Regel) */
+  .game-list li.game-gold:hover .game-title::after {
+    content: " – GOLD";
+  }
+
+  .game-list li.game-silver:hover .game-title::after {
+    content: " – SILVER";
+  }
+
+  .game-list li.game-bronze:hover .game-title::after {
+    content: " – BRONZE";
   }
 
 }
