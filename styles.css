@@ -1,0 +1,702 @@
+:root {
+    --bg-dark: #1b2838;
+    --bg-secondary: #2a475e;
+    --bg-hover: #2f4358;
+    --bg-content: #203647;
+    --text-primary: #c7d5e0;
+    --text-secondary: #8f98a0;
+    --accent: #66c0f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	caret-color: transparent;  /* Blinken des Cursors ausschließen */
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+/* HEADER */
+header {
+    background-color: #171a21;
+    padding: 22px 22px;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: center;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 20px rgba(102,192,244,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(102,192,244,0.45);
+}
+
+.header-text h1 {
+    font-size: 30px;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+.header-text p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.steam-link a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.15s ease;
+}
+
+.steam-link a:hover {
+    opacity: 0.85;
+}
+
+/* Links im Header sauber auf einer Linie halten */
+.steam-link {
+  display: inline-flex;
+  align-items: center;     
+  gap: 6px;                
+}
+
+.steam-link a,
+.steam-link .sep {
+  line-height: 1;         
+}
+
+.steam-link svg {
+  display: block;          
+}
+
+/* Trennpunkt leicht abtönen */
+.steam-link .sep {
+  opacity: .7;
+}
+
+.steam-link .about-link {
+    font-size: 14px;  
+    font-weight: 400;  
+    line-height: 1;   
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ABOUT POPUP */
+.about-box {
+  background: var(--bg-secondary);
+  padding: 26px 32px;
+  border-radius: 10px;
+  width: min(900px, 94vw);    
+  max-height: 86vh;           
+  overflow: auto;
+  color: var(--text-primary);
+  box-shadow: 0 0 18px rgba(102,192,244,0.28);
+  border-left: 3px solid var(--accent);
+  border-right: 3px solid var(--accent);
+  animation: fadeIn 0.25s ease;
+}
+
+.about-box h2 {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.about-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Smartphone */
+@media (max-width: 768px) {
+  .about-box {
+    width: 92vw;
+    padding: 22px 22px;
+  }
+}
+
+/* Container */
+.container {
+    max-width: 720px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* INFO BOX */
+.info-box {
+    background-color: var(--bg-secondary);
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    border-left: 2px solid var(--accent);
+	border-right: 2px solid var(--accent);
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .info-box {
+    font-size: 13px;     
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .info-box br {
+    display: none; 
+  }
+}
+
+
+/* YEAR */
+.year {
+    margin-bottom: 15px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+    transition: box-shadow 0.15s ease;
+}
+
+.year:hover {
+    box-shadow: 0 0 12px rgba(102,192,244,0.18);
+}
+
+.year-header {
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s ease;
+}
+
+.year-header:hover {
+    background-color: var(--bg-hover);
+}
+
+.year-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.year-title {
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.arrow {
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+.year.open .arrow {
+    transform: rotate(180deg);
+}
+
+.year-meta {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* ACCORDION */
+.year-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    background-color: var(--bg-content);
+}
+
+.year-content-inner {
+    padding: 12px 20px;
+}
+
+/* GAME LIST */
+.game-list {
+    list-style: none;
+}
+
+.game-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s ease;
+}
+
+.game-list li:hover {
+    background: rgba(102,192,244,0.04);
+}
+
+.game-title {
+    font-size: 13px;
+}
+
+.game-extra {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+}
+
+.game-extra:empty {
+    display: none;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 35px;
+    padding: 12px;
+    background-color: #171a21;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-top: 1px solid #000;
+}
+
+/* SEARCH */
+.search-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 25px 0;
+}
+
+.search-box {
+    width: 420px;
+    max-width: 90%;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 6px;
+
+    border: 1px solid rgba(102,192,244,0.25); 
+    background-color: var(--bg-secondary);
+
+    color: var(--text-primary);
+    font-size: 16px;
+    text-align: center;
+
+    outline: none;
+    transition: border 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-box input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-box input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 6px rgba(102,192,244,0.25);
+}
+
+.impressum-img {
+  width: 60%;
+  max-width: 260px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .header-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-image img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .year-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .game-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+}
+
+/* Small devices */
+@media (max-width: 600px) {
+
+    .year-header {
+        padding: 16px 18px;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 480px) {
+
+    .game-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .game-extra {
+        margin-top: 4px;
+    }
+
+}  
+
+/* IMPRESSUM POPUP */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.impressum-box {
+    background: var(--bg-secondary);
+    padding: 20px 28px;
+    border-radius: 8px;
+    max-width: 420px;
+    color: var(--text-primary);
+    box-shadow: 0 0 15px rgba(102,192,244,0.25);
+    border-left: 3px solid var(--accent);
+	border-right: 3px solid var(--accent);
+    animation: fadeIn 0.25s ease;
+}
+
+.impressum-box h2 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    margin-top: 15px;
+    padding: 8px 14px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: opacity 0.15s ease;
+}
+
+.close-btn:hover {
+    opacity: 0.85;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- GAME STATUS BOX --- */
+.game-status {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+
+  padding: 10px 14px;
+  width: 210px;
+
+  font-size: 0.8rem;
+  color: var(--text-primary);
+
+  /* Grundtiefe */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+  transition: box-shadow 0.2s ease;
+  overflow: hidden;
+  max-width: 90vw;
+}
+
+.game-status:hover {
+  box-shadow:
+    0 0 0 1px rgba(102,192,244,0.3),   
+    0 0 16px rgba(102,192,244,0.25),     
+    0 6px 18px rgba(0,0,0,0.35);       
+}
+
+.game-status .title {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.game-status strong {
+  color: var(--text-primary);
+}
+
+
+.game-status span {
+  color: rgba(199,213,224,0.8);
+}
+
+/* Container für Stapelung */
+.game-status-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 9999;
+  padding-top: 10px;  
+}
+
+/* Einzelne Box AUSBLENDEN */
+.game-status.disabled {
+  display: none;
+}
+
+/* Close Button */
+.close-status-btn {
+  position: absolute;
+  top: 0;       
+  right: 0;
+
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  
+  
+  background-color: var(--bg-secondary); 
+  padding: 3px 7px;                      
+  border-radius: 15px;                    
+
+  border: 1px solid rgba(255,255,255,0.08);  
+}
+
+
+.close-status-btn:hover {
+  box-shadow: 0 0 6px rgba(102,192,244,0.5);
+}
+
+
+@media (hover: none) {
+  .close-status-btn {
+    padding: 6px 10px;   
+    font-size: 13px;     
+  }
+}
+
+.close-status-btn {
+  display: inline-block;
+}
+
+.game-status-container.hidden {
+  display: none;
+}
+
+
+.star {
+  color: var(--accent);  
+}
+
+/* Formatierung Steam Logo */
+.steam-icon {
+  width: 16px;   
+  height: 16px;
+
+  display: block;     
+}
+
+/* Kein Scrollen mehr im Hintergrund, wenn PopUp aktiv */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Verschieben des Bildschirmhintergrunds bei PopUp-Oeffnung fixen */
+html {
+    scrollbar-gutter: stable;
+}
+
+
+/* GOTY-Kennzeichnung: Alle Einstellungen */
+
+/* ============================= */
+/* 🥇 GOLD */
+/* ============================= */
+
+.game-list li.game-gold {
+  position: relative;
+  background-color: rgba(255, 215, 0, 0.07);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  /* ✅ echte Breite */
+  width: calc(100% + 20px);
+  margin-left: -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.game-list li.game-gold:hover {
+  background-color: rgba(255, 215, 0, 0.20);
+  box-shadow:
+    0 0 6px rgba(255, 215, 0, 0.25),
+    0 0 14px rgba(255, 215, 0, 0.15);
+}
+
+.game-list li.game-gold:hover {
+  background-color: rgba(255, 215, 0, 0.20) !important;
+}
+
+.game-gold .game-title {
+  display: inline-block;
+}
+
+.game-list li.game-gold .game-title::after {
+  content: "";
+}
+
+.game-list li.game-gold:hover .game-title::after {
+  content: " – GOLD: This Year's Highlight";
+  margin-left: 6px;
+  font-size: 10.5px;
+  color: rgba(255, 215, 0, 0.75);
+}
+
+
+/* ============================= */
+/* 🥈 SILBER */
+/* ============================= */
+
+.game-list li.game-silver {
+  position: relative;
+  background-color: rgba(192, 192, 192, 0.11);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  width: calc(100% + 20px);
+  margin-left: -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.game-list li.game-silver:hover {
+  background-color: rgba(192, 192, 192, 0.18);
+  box-shadow:
+    0 0 6px rgba(192, 192, 192, 0.30),
+    0 0 14px rgba(192, 192, 192, 0.18);
+}
+
+.game-list li.game-silver:hover {
+  background-color: rgba(192, 192, 192, 0.18) !important;
+}
+
+.game-silver .game-title {
+  display: inline-block;
+}
+
+.game-list li.game-silver .game-title::after {
+  content: "";
+}
+
+.game-list li.game-silver:hover .game-title::after {
+  content: " – SILVER: This Year's Highlight";
+  margin-left: 6px;
+  font-size: 10.5px;
+  color: rgba(200, 200, 200, 0.75);
+}
+
+
+/* ============================= */
+/* 🥉 BRONZE */
+/* ============================= */
+
+.game-list li.game-bronze {
+  position: relative;
+  background-color: rgba(205, 127, 50, 0.11);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  width: calc(100% + 20px);
+  margin-left: -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.game-list li.game-bronze:hover {
+  background-color: rgba(205, 127, 50, 0.18);
+  box-shadow:
+    0 0 6px rgba(205, 127, 50, 0.30),
+    0 0 14px rgba(205, 127, 50, 0.18);
+}
+
+.game-list li.game-bronze:hover {
+  background-color: rgba(205, 127, 50, 0.18) !important;
+}
+
+.game-bronze .game-title {
+  display: inline-block;
+}
+
+.game-list li.game-bronze .game-title::after {
+  content: "";
+}
+
+.game-list li.game-bronze:hover .game-title::after {
+  content: " – BRONZE: This Year's Highlight";
+  margin-left: 6px;
+  font-size: 10.5px;
+  color: rgba(210, 150, 100, 0.75);
+}
+
+
+/* GOLD, SILVER, BRONZE - Ansicht auf Smartphones */
+@media (max-width: 768px) {
+
+  .game-list li.game-gold .game-title::after {
+    content: " – GOLD" !important;
+    margin-left: 6px;
+    font-size: 10.5px;
+    color: rgba(255, 215, 0, 0.75);
+  }
+
+  .game-list li.game-silver .game-title::after {
+    content: " – SILVER" !important;
+    margin-left: 6px;
+    font-size: 10.5px;
+    color: rgba(200, 200, 200, 0.75);
+  }
+
+  .game-list li.game-bronze .game-title::after {
+    content: " – BRONZE" !important;
+    margin-left: 6px;
+    font-size: 10.5px;
+    color: rgba(210, 150, 100, 0.75);
+  }
+
+}
