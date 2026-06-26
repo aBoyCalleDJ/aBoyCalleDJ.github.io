@@ -727,40 +727,28 @@ html {
 @media (max-width: 768px) {
 
   .game-list li.game-gold .game-title::after {
-    content: " – GOLD";
+    content: " – GOLD" !important;
     margin-left: 6px;
     font-size: 10.5px;
     color: rgba(255, 215, 0, 0.75);
   }
 
   .game-list li.game-silver .game-title::after {
-    content: " – SILVER";
+    content: " – SILVER" !important;
     margin-left: 6px;
     font-size: 10.5px;
     color: rgba(200, 200, 200, 0.75);
   }
 
   .game-list li.game-bronze .game-title::after {
-    content: " – BRONZE";
+    content: " – BRONZE" !important;
     margin-left: 6px;
     font-size: 10.5px;
     color: rgba(210, 150, 100, 0.75);
   }
 
-  /* ✅ WICHTIG: Hover deaktivieren (überschreibt Desktop-Regel) */
-  .game-list li.game-gold:hover .game-title::after {
-    content: " – GOLD";
-  }
-
-  .game-list li.game-silver:hover .game-title::after {
-    content: " – SILVER";
-  }
-
-  .game-list li.game-bronze:hover .game-title::after {
-    content: " – BRONZE";
-  }
-
 }
+
 
 </style>
 </head>
@@ -981,7 +969,7 @@ html {
 						<span class="game-title">04 | Flintlock: The Siege of Dawn</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">05 | Drova: Forsaken Kin</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1089,7 +1077,7 @@ html {
 						<span class="game-title">31 | Cronos: The New Dawn</span>
 						<span class="game-extra"></span>
 					</li>
-					<li class="game-bronze">
+					<li>
 						<span class="game-title">32 | Split Fiction</span>
 						<span class="game-extra">PlayStation 5</span>
 					</li>
@@ -1141,7 +1129,7 @@ html {
         <div class="year-content">
             <div class="year-content-inner">
                 <ul class="game-list">
-                    <li>
+                    <li class="game-silver">
 						<span class="game-title">01 | Baldur's Gate 3</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1249,7 +1237,7 @@ html {
 						<span class="game-title">27 | Risen</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">28 | Silent Hill 2 (2024)</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1325,7 +1313,7 @@ html {
 						<span class="game-title">07 | To the Moon</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">08 | Dead Space (2023)</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1425,7 +1413,7 @@ html {
 						<span class="game-title">32 | Impostor Factory</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">33 | Remnant 2</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1525,7 +1513,7 @@ html {
 						<span class="game-title">04 | Kena: Bridge of Spirits</span>
 						<span class="game-extra">PlayStation 5</span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">05 | Road 96</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1649,7 +1637,7 @@ html {
 						<span class="game-title">35 | Arise: A Simple Story</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">36 | A Plague Tale: Requiem</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1773,7 +1761,7 @@ html {
 						<span class="game-title">17 | Mass Effect - Legendary Edition</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">18 | Mass Effect 2 - Legendary Edition</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1837,7 +1825,7 @@ html {
 						<span class="game-title">33 | The Last Campfire</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">34 | The Forgotten City</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1885,7 +1873,7 @@ html {
 						<span class="game-title">01 | Remnant: From The Ashes</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">02 | Red Dead Redemption 2</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1965,7 +1953,7 @@ html {
 						<span class="game-title">21 | Star Wars Jedi: Fallen Order</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">22 | Control - Ultimate Edition</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2053,7 +2041,7 @@ html {
 						<span class="game-title">07 | Sekiro: Shadows Die Twice</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">08 | A Plague Tale: Innocence</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2081,7 +2069,7 @@ html {
 						<span class="game-title">14 | The Dark Pictures: Man of Medan</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">15 | GreedFall</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2125,7 +2113,7 @@ html {
         <div class="year-content">
             <div class="year-content-inner">
                 <ul class="game-list">
-                    <li>
+                    <li class="game-gold">
 						<span class="game-title">01 | Dark Souls</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2161,7 +2149,7 @@ html {
 						<span class="game-title">09 | Vampyr</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">10 | God of War (2018)</span>
 						<span class="game-extra">PlayStation 4</span>
 					</li>
@@ -2197,7 +2185,7 @@ html {
 						<span class="game-title">18 | Sunset Overdrive</span>
 						<span class="game-extra"></span>
 					</li>
-					<li class="game-gold">
+					<li class="game-bronze">
 						<span class="game-title">19 | The Council</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2281,7 +2269,7 @@ html {
 						<span class="game-title">11 | Dishonored 2</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">12 | Prey (2017)</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2289,7 +2277,7 @@ html {
 						<span class="game-title">13 | Kona</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">14 | What Remains of Edith Finch</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2297,7 +2285,7 @@ html {
 						<span class="game-title">15 | The Walking Dead: A New Frontier</span>
 						<span class="game-extra"></span>
 					</li>
-					<li class="game-gold">
+					<li>
 						<span class="game-title">16 | Get Even</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2337,7 +2325,7 @@ html {
 						<span class="game-title">25 | Until Dawn</span>
 						<span class="game-extra">PlayStation 4</span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">26 | The Evil Within 2</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2401,7 +2389,7 @@ html {
 						<span class="game-title">03 | Rise of the Tomb Raider</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">04 | Dragon's Dogma: Dark Arisen</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2473,7 +2461,7 @@ html {
 						<span class="game-title">21 | No Man's Sky</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">22 | Deus Ex: Mankind Divided</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2561,7 +2549,7 @@ html {
 						<span class="game-title">08 | Wolfenstein: The New Order</span>
 						<span class="game-extra">PlayStation 4</span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">09 | The Witcher 3: Wild Hunt</span>
 						<span class="game-extra">PlayStation 4</span>
 					</li>
@@ -2597,7 +2585,7 @@ html {
 						<span class="game-title">17 | Mad Max</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">18 | Soma</span>
 						<span class="game-extra"></span>
 					</li>
