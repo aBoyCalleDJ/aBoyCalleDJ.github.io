@@ -594,6 +594,122 @@ html {
 }
 
 
+/* GOTY-Kennzeichnung: Alle Einstellungen */
+/* ============================= */
+/* 🥇 GOLD */
+/* ============================= */
+
+.game-list li.game-gold {
+  position: relative;
+  background-color: rgba(255, 215, 0, 0.07);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-list li.game-gold:hover {
+  background-color: rgba(255, 215, 0, 0.20);
+  box-shadow:
+    0 0 6px rgba(255, 215, 0, 0.25),
+    0 0 14px rgba(255, 215, 0, 0.15);
+}
+
+.game-list li.game-gold:hover {
+  background-color: rgba(255, 215, 0, 0.20) !important;
+}
+
+/* Titel bleibt stabil */
+.game-gold .game-title {
+  display: inline-block;
+}
+
+/* ✅ NUR bei Hover sichtbar */
+.game-list li.game-gold .game-title::after {
+  content: "";
+}
+
+.game-list li.game-gold:hover .game-title::after {
+  content: " – GOLD: This Year's Highlight";
+  margin-left: 6px;
+  font-size: 10.5px;
+  color: rgba(255, 215, 0, 0.75);
+}
+
+
+/* ============================= */
+/* 🥈 SILBER */
+/* ============================= */
+
+.game-list li.game-silver {
+  position: relative;
+  background-color: rgba(192, 192, 192, 0.11);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-list li.game-silver:hover {
+  background-color: rgba(192, 192, 192, 0.18);
+  box-shadow:
+    0 0 6px rgba(192, 192, 192, 0.30),
+    0 0 14px rgba(192, 192, 192, 0.18);
+}
+
+.game-list li.game-silver:hover {
+  background-color: rgba(192, 192, 192, 0.18) !important;
+}
+
+.game-silver .game-title {
+  display: inline-block;
+}
+
+/* ✅ nur Hover */
+.game-list li.game-silver .game-title::after {
+  content: "";
+}
+
+.game-list li.game-silver:hover .game-title::after {
+  content: " – SILVER: This Year's Highlight";
+  margin-left: 6px;
+  font-size: 10.5px;
+  color: rgba(200, 200, 200, 0.75);
+}
+
+
+/* ============================= */
+/* 🥉 BRONZE */
+/* ============================= */
+
+.game-list li.game-bronze {
+  position: relative;
+  background-color: rgba(205, 127, 50, 0.11);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-list li.game-bronze:hover {
+  background-color: rgba(205, 127, 50, 0.18);
+  box-shadow:
+    0 0 6px rgba(205, 127, 50, 0.30),
+    0 0 14px rgba(205, 127, 50, 0.18);
+}
+
+.game-list li.game-bronze:hover {
+  background-color: rgba(205, 127, 50, 0.18) !important;
+}
+
+.game-bronze .game-title {
+  display: inline-block;
+}
+
+/* ✅ nur Hover */
+.game-list li.game-bronze .game-title::after {
+  content: "";
+}
+
+.game-list li.game-bronze:hover .game-title::after {
+  content: " – BRONZE: This Year's Highlight";
+  margin-left: 6px;
+  font-size: 10.5px;
+  color: rgba(210, 150, 100, 0.75);
+}
+
+
 
 </style>
 </head>
@@ -858,11 +974,11 @@ html {
 						<span class="game-title">15 | Lost Records: Bloom & Rage</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">16 | Kingdom Come Deliverance 2</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-silver">
 						<span class="game-title">17 | Clair Obscur: Expedition 33</span>
 						<span class="game-extra"></span>
 					</li>
@@ -922,7 +1038,7 @@ html {
 						<span class="game-title">31 | Cronos: The New Dawn</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-bronze">
 						<span class="game-title">32 | Split Fiction</span>
 						<span class="game-extra">PlayStation 5</span>
 					</li>
@@ -1106,7 +1222,7 @@ html {
 						<span class="game-title">33 | Remnant 2: The Dark Horizon (DLC)</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">34 | Indiana Jones and the Great Circle</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1282,7 +1398,7 @@ html {
 						<span class="game-title">38 | The Stanley Parable</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">39 | Alan Wake 2</span>
 						<span class="game-extra">PlayStation 5</span>
 					</li>
@@ -1378,7 +1494,7 @@ html {
 						<span class="game-title">09 | Industria</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">10 | Elden Ring</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1566,7 +1682,7 @@ html {
 						<span class="game-title">07 | Mass Effect Andromeda</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">08 | It Takes Two</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1631,7 +1747,7 @@ html {
 						<span class="game-extra"></span>
 					</li>
 					<li>
-						<span class="game-title">24 | Astro‘s Playroom</span>
+						<span class="game-title">24 | Astro's Playroom</span>
 						<span class="game-extra">PlayStation 5</span>
 					</li>
 					<li>
@@ -1639,7 +1755,7 @@ html {
 						<span class="game-extra"></span>
 					</li>
 					<li>
-						<span class="game-title">26 | Demon‘s Souls (2020)</span>
+						<span class="game-title">26 | Demon's Souls (2020)</span>
 						<span class="game-extra">PlayStation 5</span>
 					</li>
 					<li>
@@ -1762,7 +1878,7 @@ html {
 						<span class="game-title">12 | We Were Here</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">13 | Kingdom Come Deliverance - Royal Edition</span>
 						<span class="game-extra"></span>
 					</li>
@@ -1866,7 +1982,7 @@ html {
 						<span class="game-title">02 | Sniper Elite 4</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">03 | Resident Evil 2 (2019)</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2030,7 +2146,7 @@ html {
 						<span class="game-title">18 | Sunset Overdrive</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">19 | The Council</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2130,7 +2246,7 @@ html {
 						<span class="game-title">15 | The Walking Dead: A New Frontier</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">16 | Get Even</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2274,7 +2390,7 @@ html {
 						<span class="game-title">13 | Fallout 4: Far Harbor (DLC)</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">14 | Firewatch</span>
 						<span class="game-extra"></span>
 					</li>
@@ -2422,7 +2538,7 @@ html {
 						<span class="game-title">15 | Fallout 4</span>
 						<span class="game-extra"></span>
 					</li>
-					<li>
+					<li class="game-gold">
 						<span class="game-title">16 | Life is Strange</span>
 						<span class="game-extra"></span>
 					</li>
