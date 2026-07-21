@@ -97,8 +97,13 @@ Anyway, have fun exploring.
 					 
 					<span class="sep">·</span>
 					<a href="#" id="openAbout" class="about-link">
-					<span>About this site</span>
+					<span>About</span>
 					</a>
+					
+					<span class="sep">·</span>
+					<a href="#" id="openSetup" class="about-link">
+					<span>PC Setup</span>
+					</a>				
 			</div>
         </div>
     </div>
@@ -2278,6 +2283,124 @@ Anyway, have fun exploring.
   </div>
 </div>
 
+<!-- SETUP POPUP -->
+<div id="setupOverlay" class="overlay" style="display:none;">
+  <div class="setup-box">
+
+    <h2>MY CURRENT PC GAMING SETUP</h2>
+	
+	<h3 class="setup-subtitle">Last Update: 21.07.2026</h3> <br>
+	
+	<p class="setup-text">
+	This is the system I currently use for PC gaming. 
+	Yeah, I spend a lot of money on my hobby and my girlfriend would probably appreciate getting flowers again sometime.
+	</p> <br>
+
+	<p class="setup-text">
+	<b>PC HARDWARE</b></p>
+	<table class="setup-specs">
+      <tr>
+        <td>Case</td>
+        <td>Lian Li O11 Dynamic EVO</td>
+      </tr>
+	  <tr>
+        <td>Board</td>
+        <td>ASUS ROG Strix Z790-F</td>
+      </tr>
+		<td>CPU</td>
+		<td>Intel Core i7-14700K</td>
+      </tr>
+      <tr>
+        <td>GPU</td>
+        <td>MSI Gaming X Trio GeForce RTX 4080</td>
+      </tr>
+      <tr>
+        <td>RAM</td>
+        <td>32GB Corsair Vengeance DDR5-6000</td>
+      </tr>
+	  <tr>
+        <td>SSD</td>
+        <td>2TB Samsung 980 PRO</td>
+      </tr>	
+	  <tr>
+        <td>Cooling</td>
+        <td>Corsair iCUE LINK H150i</td>
+      </tr>
+	  <tr>
+        <td>PSU</td>
+        <td>Corsair RMe 1000W</td>
+      </tr>
+    </table>
+	
+	<p class="setup-text">
+	<br>
+	<b>DESK SETUP & DISPLAYS</b></p>
+    <table class="setup-specs">
+      <tr>
+        <td>Desk</td>
+        <td>Secretlab Magnus Pro XL</td>
+      </tr>
+	  <tr>
+        <td>Monitor</td>
+        <td>Alienware AW3423DWF</td>
+      </tr>
+		<td>Chair</td>
+		<td>Noblechairs Hero (Black Edition)</td>
+      </tr>
+    </table>	
+
+	<p class="setup-text">
+	<br>
+	<b>AUDIO EQUIPMENT</b></p>
+    <table class="setup-specs">
+      <tr>
+        <td>Speakers</td>
+        <td>Teufel ULTIMA 20</td>
+      </tr>
+	  <tr>
+        <td>Headset</td>
+        <td>Beyerdynamic MMX 300</td>
+      </tr>
+        <td>Audio Amplifier</td>
+        <td>Sabaj A3</td>
+      </tr>
+      <tr>
+        <td>USB DAC Sound Card</td>
+        <td>Sound BlasterX G6</td>
+	  </tr>
+    </table>
+	
+	<p class="setup-text">
+	<br>
+	<b>PERIPHERALS</b></p>
+    <table class="setup-specs">
+      <tr>
+        <td>Keyboard</td>
+        <td>Logitech G G915 X Lightspeed </td>
+      </tr>
+	  <tr>
+        <td>Mouse</td>
+        <td>Logitech G G502 X Plus Lightspeed</td>
+      </tr>
+    </table>
+	
+	<br>
+
+	
+	<img src="pc_gaming_setup.jpg" alt="Test" class="setup-img">
+
+
+    <p class="setup-text">
+      Thanks for reading through this admittedly rather show-off-ish list. I'm actually a pretty down-to-earth guy.
+	  At least that's what I keep telling myself. Seriously. Please trust me.
+    </p>
+
+
+    <button id="closeSetup" class="close-btn">Close</button>
+
+  </div>
+</div>
+
 
 <script>
 /* Elemente referenzieren */
@@ -2470,6 +2593,33 @@ aboutOpen.addEventListener("click", (e) => {
   });
 
 }
+
+// PC Setup Popup
+const setupOpen = document.getElementById("openSetup");
+const setupOverlay = document.getElementById("setupOverlay");
+const setupClose = document.getElementById("closeSetup");
+
+if (setupOpen && setupOverlay && setupClose) {
+
+    setupOpen.addEventListener("click", (e) => {
+        e.preventDefault();
+        setupOverlay.style.display = "flex";
+        document.body.classList.add("no-scroll");
+    });
+
+    setupClose.addEventListener("click", () => {
+        setupOverlay.style.display = "none";
+        document.body.classList.remove("no-scroll");
+    });
+
+    setupOverlay.addEventListener("click", (e) => {
+        if (e.target === setupOverlay) {
+            setupOverlay.style.display = "none";
+            document.body.classList.remove("no-scroll");
+        }
+    });
+}
+
 document.querySelectorAll('.close-status-btn').forEach(btn => {
   btn.onclick = () => {
     document.querySelector('.game-status-container').classList.add('hidden');

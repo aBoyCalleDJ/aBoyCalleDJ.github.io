@@ -132,6 +132,75 @@ header {
   color: var(--text-secondary);
 }
 
+/* SETP POPUP */
+.setup-box {
+    background: var(--bg-secondary);
+    padding: 26px 32px;
+    border-radius: 10px;
+    width: min(720px, 94vw);
+    max-height: 86vh;
+    overflow: auto;
+    color: var(--text-primary);
+    box-shadow: 0 0 18px rgba(102,192,244,0.28);
+    border-left: 3px solid var(--accent);
+    border-right: 3px solid var(--accent);
+    animation: fadeIn 0.25s ease;
+	font-size: 14px;
+}
+
+.setup-box h2 {
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.setup-box p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.setup-img {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 8px;
+}
+
+.setup-specs {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.setup-specs td {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.setup-specs td:first-child {
+    width: 155px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.setup-img {
+    display: block;
+
+    width: 100%;
+    max-width: 700px;
+
+    height: auto;
+
+    margin: 20px auto;
+
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+
+    box-shadow: 0 0 5px rgba(102,192,244,0.15);
+}
+
+
 /* Smartphone */
 @media (max-width: 768px) {
   .about-box {
@@ -139,6 +208,30 @@ header {
     padding: 22px 22px;
   }
 }
+
+/* Smartphone PC Setup */
+@media (max-width: 768px) {
+
+    .setup-box {
+        width: 95vw;
+        padding: 20px;
+    }
+
+    .setup-specs {
+        font-size: 13px;
+    }
+
+    .setup-specs td:first-child {
+        width: 90px;
+    }
+  
+	.setup-img {
+    width: 95%;
+    max-width: 700px;
+    height: auto;
+}
+}
+
 
 /* Container */
 .container {
