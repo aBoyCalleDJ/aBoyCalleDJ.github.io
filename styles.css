@@ -137,7 +137,7 @@ header {
     background: var(--bg-secondary);
     padding: 26px 32px;
     border-radius: 10px;
-    width: min(720px, 94vw);
+    width: min(710px, 94vw);
     max-height: 86vh;
     overflow: auto;
     color: var(--text-primary);
@@ -170,7 +170,7 @@ header {
 .setup-specs {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 13.5px;
 }
 
 .setup-specs td {
