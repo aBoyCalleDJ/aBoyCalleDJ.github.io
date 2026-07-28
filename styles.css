@@ -87,11 +87,11 @@ header {
 }
 
 .steam-link a:hover {
-    background: rgba(102,192,244,0.20);
-    border-color: rgba(102,192,244,0.50);
-    box-shadow: 0 0 10px rgba(102,192,244,0.25);
-    transform: translateY(-1px);
+    background: rgba(102,192,244,0.16);
+    border-color: rgba(102,192,244,0.40);
+    box-shadow: 0 0 5px rgba(102,192,244,0.15);
 }
+
 
 /* Smartphone Header Buttons */
 @media (max-width: 768px) {
@@ -658,7 +658,7 @@ footer {
     color: var(--accent);
     font-weight: 600;
     margin-bottom: 6px;
-    padding-bottom: 1.5px;
+    padding-bottom: 2px;
     border-bottom: 1px solid rgba(102,192,244,0.20);
 }
 
