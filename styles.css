@@ -282,9 +282,11 @@ font-size: 13.5px !important;
     }
 
     .setup-picture-btn {
-        top: 150px !important;
-		right: 20px !important;
-		background: red !important;
+        top: 95px !important;
+		right: 15px !important;
+		background: var(--accent) !important;
+		font-size: 11px;
+		padding: 6px 10px;
     }
 }
 
