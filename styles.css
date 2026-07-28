@@ -328,6 +328,11 @@ font-size: 13.5px !important;
 		font-size: 11px;
 		padding: 6px 10px;
     }
+
+	/* Letzte Tabellenlinie auf Mobil etwas kräftiger */
+	.setup-specs tr:last-child td {
+	border-bottom: 1px solid rgba(255,255,255,0.15);
+	}
 }
 
 /* Smartphone PC Setup - Foto Setup */
