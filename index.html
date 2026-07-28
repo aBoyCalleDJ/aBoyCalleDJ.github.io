@@ -2409,6 +2409,7 @@ Anyway, have fun exploring.
         src="pc_gaming_setup.jpg"
         alt="PC Gaming Setup"
         class="setup-image-full"
+		draggable="false"
     />
 </div>
 
@@ -2649,6 +2650,18 @@ if (showSetupPicture && setupImageOverlay) {
     });
 
 }
+
+// PC Setup Picture: Rechtsklick sperren
+setupImage.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+});
+
+// Ziehen des Bildes verhindern
+setupImage.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+});
+
+
 
 document.querySelectorAll('.close-status-btn').forEach(btn => {
   btn.onclick = () => {

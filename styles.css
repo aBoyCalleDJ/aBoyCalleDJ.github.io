@@ -200,6 +200,10 @@ header {
     box-shadow: 0 0 5px rgba(102,192,244,0.15);
 }
 
+.setup-text {
+font-size: 13.5px !important;
+}
+
 .setup-text2 {
     color: var(--text-primary) !important;
 	font-size: 15px !important;
@@ -237,6 +241,11 @@ header {
     object-fit: contain;
     border-radius: 8px;
     cursor: pointer;
+	
+	-webkit-user-drag: none;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
 }
 
 
@@ -255,6 +264,7 @@ header {
     .setup-box {
         width: 95vw;
         padding: 20px;
+        padding-top: 60px;
     }
 
     .setup-specs {
@@ -264,19 +274,26 @@ header {
     .setup-specs td:first-child {
         width: 110px;
     }
-  
-	.setup-img {
-    width: 95%;
-    max-width: 700px;
-    height: auto;
-}
+
+    .setup-img {
+        width: 95%;
+        max-width: 700px;
+        height: auto;
+    }
+
+    .setup-picture-btn {
+        top: 12px;
+        right: 12px;
+        font-size: 11px;
+        padding: 6px 10px;
+    }
 }
 
 /* Smartphone PC Setup - Foto Setup */
 @media (max-width: 768px) {
     .setup-image-full {
-        max-width: 90vw;
-        max-height: 90vh;
+        max-width: 85vw;
+        max-height: 85vh;
     }
 }
 
