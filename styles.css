@@ -282,9 +282,9 @@ font-size: 13.5px !important;
     }
 
     .setup-picture-btn {
-        position: static;
-		display: block;
-		margin: 15px auto 20px auto;
+        top: 150px !important;
+		right: 20px !important;
+		background: red !important;
     }
 }
 
