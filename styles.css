@@ -535,7 +535,7 @@ footer {
     .header-inner {
         flex-direction: column;
         text-align: center;
-		gap: 10px;
+		gap: 12px;
     }
 
     .header-image img {
