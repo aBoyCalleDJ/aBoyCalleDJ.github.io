@@ -205,6 +205,40 @@ header {
 	font-size: 15px !important;
 }
 
+/* Setup Bild Button */
+.setup-picture-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.setup-picture-btn:hover {
+    opacity: 0.85;
+}
+
+/* Positionierung für Button */
+.setup-box {
+    position: relative;
+}
+
+/* Foto für Setup */
+.setup-image-full {
+    max-width: 68vw; /* Prozent für Größe des Bildes */
+    max-height: 68vh; /* Prozent für Größe des Bildes */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 
 
 /* Smartphone */
@@ -238,6 +272,13 @@ header {
 }
 }
 
+/* Smartphone PC Setup - Foto Setup */
+@media (max-width: 768px) {
+    .setup-image-full {
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+}
 
 /* Container */
 .container {

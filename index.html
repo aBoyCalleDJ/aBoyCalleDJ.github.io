@@ -2286,7 +2286,11 @@ Anyway, have fun exploring.
 <!-- SETUP POPUP -->
 <div id="setupOverlay" class="overlay" style="display:none;">
   <div class="setup-box">
-
+ 
+  <button id="showSetupPicture" class="setup-picture-btn">
+    Show Setup Picture
+  </button>
+  
     <h2>MY PC GAMING SETUP</h2>
 	
 	<h3 class="setup-subtitle">Last Update: 21.07.2026</h3> <br>
@@ -2386,9 +2390,6 @@ Anyway, have fun exploring.
 	
 	<br>
 
-<!--
-	<img src="pc_gaming_setup.jpg" alt="Test" class="setup-img">
--->
 
     <p class="setup-text">
       Thanks for reading through this admittedly rather show-off-ish list. I'm actually a pretty down-to-earth guy.
@@ -2399,6 +2400,16 @@ Anyway, have fun exploring.
     <button id="closeSetup" class="close-btn">Close</button>
 
   </div>
+</div>
+
+<!-- SETUP IMAGE OVERLAY -->
+<div id="setupImageOverlay" class="overlay" style="display:none;">
+    <img
+        id="setupImage"
+        src="pc_gaming_setup.jpg"
+        alt="PC Gaming Setup"
+        class="setup-image-full"
+    />
 </div>
 
 
@@ -2618,6 +2629,25 @@ if (setupOpen && setupOverlay && setupClose) {
             document.body.classList.remove("no-scroll");
         }
     });
+}
+
+// PC Setup Picture
+const showSetupPicture = document.getElementById("showSetupPicture");
+const setupImageOverlay = document.getElementById("setupImageOverlay");
+const setupImage = document.getElementById("setupImage");
+
+if (showSetupPicture && setupImageOverlay) {
+
+    showSetupPicture.addEventListener("click", () => {
+        setupOverlay.style.display = "none";
+        setupImageOverlay.style.display = "flex";
+    });
+
+    setupImage.addEventListener("click", () => {
+        setupImageOverlay.style.display = "none";
+        setupOverlay.style.display = "flex";
+    });
+
 }
 
 document.querySelectorAll('.close-status-btn').forEach(btn => {
