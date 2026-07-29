@@ -733,6 +733,28 @@ footer {
   color: var(--accent);  
 }
 
+.star2 {
+    color: var(--accent);
+    position: relative;
+    cursor: help;
+}
+
+.star2:hover::after {
+    content: "✱ = game already finished before";
+    position: absolute;
+    left: 18px;
+    top: -8px;
+    white-space: nowrap;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid rgba(102,192,244,0.35);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
 /* Formatierung Steam Logo */
 .steam-icon {
   width: 16px;   
