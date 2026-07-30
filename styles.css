@@ -553,6 +553,11 @@ footer {
     .search-wrapper {
         gap: 6px;
     }
+	
+	.search-box {
+		width: 220px;
+		max-width: none;
+		}
 
     .search-action-btn {
         width: 42px;
