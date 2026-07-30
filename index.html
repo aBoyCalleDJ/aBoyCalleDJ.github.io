@@ -110,10 +110,18 @@ Anyway, have fun exploring.
 <div class="container">
 
 	<div class="search-wrapper">
+    <button id="closeAllBtn" class="search-action-btn" title="Close all">
+        ▲
+    </button>
+
     <div class="search-box">
         <input type="text" id="gameSearch" placeholder="SEARCH GAMES..." aria-label="Search games">
     </div>
-	</div>
+
+    <button id="openAllBtn" class="search-action-btn" title="Open all">
+        ▼
+    </button>
+</div>
 
     <div class="info-box">
         <strong>Info:</strong> All games without additional platform information were played on Steam.<br>
@@ -2418,6 +2426,8 @@ Anyway, have fun exploring.
 /* Elemente referenzieren */
 const years = document.querySelectorAll(".year");
 const searchInput = document.getElementById("gameSearch");
+const openAllBtn = document.getElementById("openAllBtn");
+const closeAllBtn = document.getElementById("closeAllBtn");
 
 /* Hilfsfunktionen */
 function openYear(year) {
@@ -2486,6 +2496,36 @@ function restoreInitialState() {
       closeYear(year);
     }
   });
+}
+
+/* Funktion: Alle Jahre öffnen */
+function openAllYears() {
+
+  // Bei aktiver Suche nichts machen
+  if (searchInput.value.trim() !== "") return;
+
+  years.forEach(year => {
+    year.style.display = "block";
+    openYear(year);
+  });
+}
+
+function closeAllYears() {
+
+  // Bei aktiver Suche nichts machen
+  if (searchInput.value.trim() !== "") return;
+
+  years.forEach(year => {
+    closeYear(year);
+  });
+}
+
+if (openAllBtn) {
+  openAllBtn.addEventListener("click", openAllYears);
+}
+
+if (closeAllBtn) {
+  closeAllBtn.addEventListener("click", closeAllYears);
 }
 
 /* Suche */
