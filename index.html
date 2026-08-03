@@ -2464,13 +2464,17 @@ years.forEach(year => {
   const inner = year.querySelector(".year-content-inner");
 
   header.addEventListener("click", () => {
-    const isOpen = year.classList.contains("open");
-    if (isOpen) {
-      closeYear(year);
-    } else {
-      openYear(year);
-    }
-  });
+
+  clearActiveButtons();
+
+  const isOpen = year.classList.contains("open");
+
+  if (isOpen) {
+    closeYear(year);
+  } else {
+    openYear(year);
+  }
+});
 });
 
 /* Ursprünglich offene Jahre merken (so, wie im HTML gesetzt) */
@@ -2501,23 +2505,32 @@ function restoreInitialState() {
 /* Funktion: Alle Jahre öffnen */
 function openAllYears() {
 
-  // Bei aktiver Suche nichts machen
   if (searchInput.value.trim() !== "") return;
 
   years.forEach(year => {
     year.style.display = "block";
     openYear(year);
   });
+
+  openAllBtn.classList.add("active");
+  closeAllBtn.classList.remove("active");
 }
 
 function closeAllYears() {
 
-  // Bei aktiver Suche nichts machen
   if (searchInput.value.trim() !== "") return;
 
   years.forEach(year => {
     closeYear(year);
   });
+
+  closeAllBtn.classList.add("active");
+  openAllBtn.classList.remove("active");
+}
+
+function clearActiveButtons() {
+  openAllBtn.classList.remove("active");
+  closeAllBtn.classList.remove("active");
 }
 
 if (openAllBtn) {
@@ -2532,6 +2545,8 @@ if (closeAllBtn) {
 searchInput.addEventListener("input", function () {
 	let query = this.value.toLowerCase().trim();
 	query = query.replace(/\*/g, "✱");
+	
+	clearActiveButtons();
 
   // Wenn Suchfeld leer → Ursprungszustand wiederherstellen und raus
   if (query === "") {
