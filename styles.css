@@ -593,12 +593,11 @@ footer {
         height: 42px;
         font-size: 15px;
     }
-
+	
 	#clearSearchBtn {
 	color: var(--accent);
 	font-size: 16px;
 	}
-
 }
 
 .impressum-img {
