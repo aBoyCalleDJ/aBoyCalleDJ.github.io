@@ -46,7 +46,7 @@ Anyway, have fun exploring.
 <title>aBoyCalleDJ - Fancy Finished Games Repository</title>
 
 <!-- Link CSS file -->
-<link rel="stylesheet" href="styles.css?v=2.2">
+<link rel="stylesheet" href="styles.css?v=1.4">
 
 </head>
 
@@ -115,8 +115,12 @@ Anyway, have fun exploring.
     </button>
 
     <div class="search-box">
-        <input type="search" id="gameSearch" placeholder="SEARCH GAMES..." aria-label="Search games">
-    </div>
+    <input type="search" id="gameSearch" placeholder="SEARCH GAMES..." aria-label="Search games">
+
+    <button id="clearSearchBtn" type="button" aria-label="Clear Search">
+        ✖
+    </button>
+</div>
 
     <button id="openAllBtn" class="search-action-btn" title="Open all">
         ▼
@@ -2428,6 +2432,7 @@ const years = document.querySelectorAll(".year");
 const searchInput = document.getElementById("gameSearch");
 const openAllBtn = document.getElementById("openAllBtn");
 const closeAllBtn = document.getElementById("closeAllBtn");
+const clearSearchBtn = document.getElementById("clearSearchBtn");
 
 /* Hilfsfunktionen */
 function openYear(year) {
@@ -2541,12 +2546,29 @@ if (closeAllBtn) {
   closeAllBtn.addEventListener("click", closeAllYears);
 }
 
+if (clearSearchBtn) {
+  clearSearchBtn.addEventListener("click", () => {
+
+    searchInput.value = "";
+
+    searchInput.dispatchEvent(
+      new Event("input", { bubbles: true })
+    );
+
+    searchInput.focus();
+  });
+}
+
 /* Suche */
 searchInput.addEventListener("input", function () {
 	let query = this.value.toLowerCase().trim();
 	query = query.replace(/\*/g, "✱");
 	
 	clearActiveButtons();
+	
+	if (clearSearchBtn) {
+  clearSearchBtn.style.display = query ? "block" : "none";
+}
 
   // Wenn Suchfeld leer → Ursprungszustand wiederherstellen und raus
   if (query === "") {
