@@ -2562,7 +2562,10 @@ if (clearSearchBtn) {
 /* Suche */
 searchInput.addEventListener("input", function () {
 	let query = this.value.toLowerCase().trim();
-	query = query.replace(/\*/g, "✱");
+
+	query = query
+    .replace(/\*/g, "✱")
+    .replace(/['‘’`]/g, "'");
 	
 	clearActiveButtons();
 	
@@ -2586,8 +2589,10 @@ searchInput.addEventListener("input", function () {
 
     games.forEach(game => {
 		let text = game.textContent.toLowerCase();
-		// auch Sternchen im Text angleichen
-		text = text.replace(/\*/g, "✱");
+
+		text = text
+		.replace(/\*/g, "✱")
+		.replace(/['‘’`]/g, "'");
 
       if (text.includes(query)) {
         game.style.display = "";
