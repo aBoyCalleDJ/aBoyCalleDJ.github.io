@@ -1022,3 +1022,11 @@ html {
     text-shadow: 0 0 6px rgba(255,215,0,0.5);
 }
 
+.dlc-tag {
+    font-size: 0.80em;
+    color: #66c0f4;
+    font-weight: 600;
+    margin-left: 1px;
+    position: relative;
+    top: -1.5px;
+}
