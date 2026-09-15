@@ -1024,7 +1024,11 @@ html {
 
 .dlc-tag {
     font-size: 0.80em;
-    color: #66c0f4;
+    /* color: #66c0f4; blau wie beim Stern */ 
+	/* color: #edf3f8; dezentes weiß */
+	/* color: #9fb8cc; entsaettigtes eisblau */
+	/* color: #8fa8bc; rauchiges blau */
+	color: #8fa8bc;
     font-weight: 600;
     margin-left: 1px;
     position: relative;
