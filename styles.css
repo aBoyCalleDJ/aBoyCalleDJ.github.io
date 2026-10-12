@@ -448,6 +448,14 @@ font-size: 13.5px !important;
     transition: background 0.15s ease;
 }
 
+/* Normale Spiele verbreitern */
+.game-list li:not(.game-gold):not(.game-silver):not(.game-bronze) {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .game-list li:hover {
     background: rgba(102,192,244,0.04);
 }
@@ -754,12 +762,14 @@ footer {
 .game-status-container {
   position: fixed;
   top: 20px;
-  right: 20px;
+
+  right: calc(max(20px, (100vw - 1200px) / 2 + 20px));
+
   display: flex;
   flex-direction: column;
   gap: 4px;
   z-index: 9999;
-  padding-top: 10px;  
+  padding-top: 10px;
 }
 
 /* Einzelne Box AUSBLENDEN */
